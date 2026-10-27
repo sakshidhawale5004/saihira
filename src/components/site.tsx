@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import logo from "@/assets/p/logo.png.asset.json";
+const logo = { url: "/saihirawebsite/SHM_ASAL_logo_high_quality_transparent.png" };
 import { useCart } from "@/lib/cart";
 
 const nav = [
