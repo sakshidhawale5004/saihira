@@ -12,10 +12,6 @@
  *
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
  */
 
 @theme inline {
@@ -99,25 +95,232 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image: var(--gradient-warm);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--primary);
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 }
 
-@layer base {
-  body { font-family: var(--font-sans); background-image: var(--gradient-warm); background-attachment: fixed; overflow-x: hidden; }
-  h1, h2, h3 { color: var(--primary); font-family: var(--font-display); letter-spacing: -0.02em; }
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
 }
-@utility glass { background: color-mix(in oklab, var(--background) 65%, transparent); backdrop-filter: blur(16px); border: 1px solid var(--border); }
-@utility text-gradient { background: var(--gradient-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
-@utility eyebrow { display: block; font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--primary); }
-@utility nav-link { font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color .3s; &:hover { color: var(--primary); } }
-@utility shadow-deep { box-shadow: var(--shadow-deep); }
-@utility btn-warm { display: inline-flex; align-items: center; gap: .5rem; border-radius: 999px; padding: .9rem 1.8rem; background: var(--primary); color: var(--primary-foreground); font-weight: 600; letter-spacing: .05em; transition: transform .3s, box-shadow .3s; &:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -15px var(--primary); } }
-@utility btn-ghost { display: inline-flex; align-items: center; border-radius: 999px; padding: .9rem 1.8rem; border: 1px solid var(--border); transition: border-color .3s; &:hover { border-color: var(--primary); } }
-@utility tilt { transition: transform .25s ease-out; transform-style: preserve-3d; }
-@utility reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-@utility reveal-in { opacity: 1; transform: none; }
-@utility marquee { animation: marquee 35s linear infinite; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-@utility frame { position: relative; background: var(--card); border: 2px solid var(--accent); outline: 1px solid var(--primary); outline-offset: -8px; border-radius: 0.5rem; &::before, &::after { content: "❦"; position: absolute; color: var(--accent); font-size: 1.4rem; line-height: 1; top: 4px; } &::before { left: 8px; } &::after { right: 8px; transform: scaleX(-1); } }
-@utility ribbon { display: inline-block; background: var(--primary); color: var(--primary-foreground); border: 2px solid var(--accent); border-radius: 999px; padding: .45rem 1.4rem; font-weight: 600; }
-@utility field { width: 100%; border-radius: .6rem; border: 1px solid var(--input); background: var(--card); padding: .8rem 1rem; outline: none; &:focus { border-color: var(--primary); } }
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.75;
+  }
+}
+
+@utility animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@utility animate-float-rev {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+@utility animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--background) 65%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+@utility text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Redesigned Navigation Menu Font: Premium Fraunces Display with animated indicator */
+@utility nav-link {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 0.3s, transform 0.2s;
+  &:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 999px;
+  }
+  &:hover::after {
+    width: 85%;
+  }
+}
+
+@utility shadow-deep {
+  box-shadow: var(--shadow-deep);
+}
+
+@utility btn-warm {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border-radius: 999px;
+  padding: .9rem 1.8rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  letter-spacing: .05em;
+  transition: transform .3s, box-shadow .3s;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -15px var(--primary);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: .9rem 1.8rem;
+  border: 1px solid var(--border);
+  transition: border-color .3s, transform .3s, background-color .3s;
+  &:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    background-color: color-mix(in oklab, var(--primary) 5%, transparent);
+  }
+}
+
+/* 3D Transform Utilities */
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  &:hover {
+    transform: translateY(-8px) rotateX(4deg) rotateY(-4deg);
+    box-shadow: 0 30px 60px -20px oklch(0.38 0.14 25 / 0.35);
+  }
+}
+
+@utility tilt {
+  transition: transform .25s ease-out;
+  transform-style: preserve-3d;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@utility marquee {
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility frame {
+  position: relative;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  outline: 1px solid var(--primary);
+  outline-offset: -8px;
+  border-radius: 0.5rem;
+  &::before, &::after {
+    content: "❦";
+    position: absolute;
+    color: var(--accent);
+    font-size: 1.4rem;
+    line-height: 1;
+    top: 4px;
+  }
+  &::before {
+    left: 8px;
+  }
+  &::after {
+    right: 8px;
+    transform: scaleX(-1);
+  }
+}
+
+@utility ribbon {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  padding: .45rem 1.4rem;
+  font-weight: 600;
+}
+
+@utility field {
+  width: 100%;
+  border-radius: .6rem;
+  border: 1px solid var(--input);
+  background: var(--card);
+  padding: .8rem 1rem;
+  outline: none;
+  &:focus {
+    border-color: var(--primary);
+  }
+}

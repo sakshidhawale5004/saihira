@@ -1,27 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Reveal, Tilt } from "@/components/site";
+import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
 import { products, formatINR } from "@/lib/products";
+import { InteractiveTilt } from "@/components/InteractiveTilt";
 import { useState } from "react";
 import { toast } from "sonner";
 
-// High quality authentic images
-const HERO = "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1600&q=85";
-const TEA = "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=1200&q=80";
-// Replaced with authentic hand-kneading / artisan dough crafting image
-const DOUGH_CRAFT = "/test_knead1.jpg";
-const GRAINS = "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1000&q=80";
-const CHAI_PAIRING = "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=800&q=80";
+// High-resolution Unsplash imagery dedicated to Khakhra, Bhakhri, roasted flatbreads & chai
+const HERO_KHAKHRA = "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1600&q=85"; // Crisp roasted Indian flatbreads
+const DOUGH_CRAFT = "/test_knead1.jpg"; // Hand kneading fresh dough
+const CHAI_SNACK = "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=1400&q=85"; // Traditional Indian chai & snacks
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "SAIHIRA · SHM Asal — Best in Taste Handmade Khakhras & Bhakhris" },
-      { name: "description", content: "Authentic Gujarati handmade Khakhras & Bhakhris. 100% roasted, 0% maida, vacuum packed for crispiness." },
+      { name: "description", content: "Authentic Gujarati handmade Khakhras & Bhakhris. 100% roasted on iron tawa, 0% maida, vacuum packed for crispiness." },
       { property: "og:title", content: "SAIHIRA · SHM Asal — Best in Taste" },
       { property: "og:description", content: "Crunchy, crispy handmade Bhakhris & Khakhras in 19 authentic flavours." },
-      { property: "og:image", content: HERO },
-      { name: "twitter:image", content: HERO },
+      { property: "og:image", content: HERO_KHAKHRA },
+      { name: "twitter:image", content: HERO_KHAKHRA },
     ],
   }),
   component: Index,
@@ -30,22 +28,15 @@ export const Route = createFileRoute("/")({
 const trustBadges = [
   { icon: "🌾", title: "100% Whole Grains", desc: "Pure wheat, bajri, ragi & barley. Zero maida." },
   { icon: "🔥", title: "Slow Roasted on Tawa", desc: "Never deep fried. 80% less oil than fried snacks." },
-  { icon: "🛡️", title: "Vacuum Sealed Pack", desc: "Maintains crunchy freshness for up to 6 months." },
+  { icon: "🛡️", title: "Vacuum Sealed Fresh", desc: "Locks in authentic crispiness for up to 6 months." },
   { icon: "🌿", title: "Pure & Jain Friendly", desc: "No onion, no garlic options & fasting farali ranges." },
 ];
 
-const why = [
-  ["Artisanal Craft", "Every single piece is hand-rolled and slow-roasted by skilled women artisans."],
-  ["Baked, Not Fried", "Slow-roasted until golden brown for guilt-free snacking anytime."],
-  ["Wholesome Grains", "Wheat, bajri, ragi, barley, oats and protein-rich moong dal."],
-  ["No Artificial Additives", "Free of chemical preservatives, artificial colors or synthetic flavoring."],
-];
-
 const steps = [
-  ["01", "Fresh Dough Kneading", "Stone-ground whole wheat, cold-pressed oil, and roasted cumin or spices are hand-kneaded fresh every morning."],
-  ["02", "Paper-Thin Hand Rolling", "Rolled on traditional wooden boards — Khakhras ultra paper-thin, and Bhakhris thick and pricked."],
-  ["03", "Slow Tawa Roasting", "Gently pressed on seasoned iron tawas using wooden presses until evenly golden and crisp."],
-  ["04", "Vacuum Packaging", "Sealed immediately in food-grade vacuum pouches to preserve authentic crunch and aroma."],
+  ["01", "Fresh Dough Kneading", "Stone-ground whole grains, cold-pressed groundnut oil, roasted cumin and methi leaves hand-kneaded fresh every morning."],
+  ["02", "Paper-Thin Hand Rolling", "Rolled on traditional wooden boards (patla) — Khakhras paper-thin, and Bhakhris thick and decoratively pricked."],
+  ["03", "Slow Tawa Roasting", "Gently pressed on seasoned iron tawas using wooden presses until evenly golden, fragrant, and crisp."],
+  ["04", "Vacuum Packaging", "Sealed immediately in food-grade vacuum pouches to preserve authentic crunch without preservatives."],
 ];
 
 const combos = [
@@ -91,7 +82,7 @@ const pairings = [
   },
   {
     title: "With Creamy Mint Yogurt Dip",
-    desc: "A healthy party appetiser! Break crispy Pani Puri or Chilli Garlic Khakhra like nachos with hung curd dip.",
+    desc: "A healthy party appetiser! Break crispy Pani Puri or Chilli Garlic Khakhra like nachos with fresh hung curd dip.",
     tag: "Modern Twist",
   },
 ];
@@ -140,42 +131,125 @@ function Index() {
 
   return (
     <>
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden">
-        <img
-          src={HERO}
-          alt="Traditional Indian handmade rotis and wholesome grains"
-          className="h-[80vh] min-h-[540px] w-full object-cover object-center filter brightness-[0.92]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30" />
-        <div className="absolute inset-0 mx-auto flex max-w-6xl items-center px-6">
-          <Reveal className="max-w-xl">
-            <div className="flex items-center gap-2">
-              <span className="eyebrow font-bold text-primary">SHM ASAL · SINCE 1990s</span>
-              <span className="rounded-full bg-accent/30 px-2.5 py-0.5 text-[11px] font-semibold text-accent-foreground">
-                100% Handcrafted
-              </span>
+      {/* 1. HERO SECTION WITH 3D MOTION EFFECT & KHAKHRA/BHAKHRI IMAGERY */}
+      <section className="relative overflow-hidden bg-[#FAF6EE] min-h-[82vh] flex items-center border-b border-border">
+        {/* Background Graphic & Texture */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={HERO_KHAKHRA}
+            alt="Authentic roasted Gujarati Khakhra and crispy flatbreads"
+            className="h-full w-full object-cover object-right md:object-center filter brightness-[0.4] saturate-[1.15]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40" />
+        </div>
+
+        {/* Ambient Floating 3D Glow Orbs */}
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-500/15 blur-3xl pointer-events-none animate-pulse-glow" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl pointer-events-none animate-pulse-glow" />
+
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            {/* Left Content */}
+            <div className="lg:col-span-7 text-white">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/15 px-3.5 py-1 text-xs font-semibold tracking-widest text-amber-300 backdrop-blur">
+                  <span>✦</span>
+                  <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
+                  <span>✦</span>
+                </div>
+
+                <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] !text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-md">
+                  Paper-thin Khakhras & Hearty Bhakhris,{" "}
+                  <em className="text-amber-300 font-normal italic">roasted by hand.</em>
+                </h1>
+
+                <p className="mt-6 text-base leading-relaxed text-amber-100/90 md:text-lg max-w-xl font-sans">
+                  Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil, and vacuum-sealed to lock in crunch for 6 months.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-4 items-center">
+                  <Link to="/products" className="btn-warm text-sm shadow-xl hover:scale-105">
+                    Explore 19 Flavours →
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-white/10 px-6 py-3.5 text-sm font-semibold tracking-wider uppercase text-amber-200 backdrop-blur transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                  >
+                    Our Heritage Story
+                  </Link>
+                </div>
+
+                {/* Quick Trust Badges */}
+                <div className="mt-10 pt-6 border-t border-white/15 grid grid-cols-3 gap-4 text-xs font-medium text-amber-200/90">
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">✓</span>
+                    <span>100% Roasted</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">✓</span>
+                    <span>Zero Maida</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">✓</span>
+                    <span>Free Shipping ₹499+</span>
+                  </div>
+                </div>
+              </Reveal>
             </div>
-            <h1 className="mt-4 text-5xl font-semibold leading-tight text-primary md:text-7xl">
-              Authentic Gujarati Crunch, <em>roasted with love.</em>
-            </h1>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Indulge in paper-thin Khakhras and hearty Bhakhris hand-rolled by master artisans. Zero maida, 100% roasted on iron tawas, and vacuum-sealed to preserve wholesome crunch.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/products" className="btn-warm text-sm">
-                Explore 19 Flavours →
-              </Link>
-              <Link to="/about" className="btn-ghost text-sm">
-                Our Heritage Story
-              </Link>
+
+            {/* Right Side: Interactive 3D Floating Packaging Display */}
+            <div className="lg:col-span-5 flex justify-center">
+              <Reveal delay={200}>
+                <InteractiveTilt maxTilt={15} scale={1.04} className="max-w-sm">
+                  <div className="relative rounded-3xl border-2 border-amber-400/40 bg-gradient-to-br from-amber-950/70 via-black/80 to-amber-900/60 p-6 shadow-2xl backdrop-blur-md">
+                    {/* Floating 3D Badge */}
+                    <div
+                      className="absolute -top-4 -right-4 z-30 rounded-full border border-accent bg-primary px-4 py-1.5 text-xs font-bold text-primary-foreground shadow-lg animate-float"
+                      style={{ transform: "translateZ(50px)" }}
+                    >
+                      ★ Most Loved Flavours
+                    </div>
+
+                    {/* 3D Floating Packaging Image */}
+                    <div
+                      className="relative h-72 w-full flex items-center justify-center overflow-hidden"
+                      style={{ transform: "translateZ(30px)" }}
+                    >
+                      {/* Radial Aura */}
+                      <div className="absolute h-52 w-52 rounded-full bg-amber-500/25 blur-2xl animate-pulse-glow" />
+
+                      <img
+                        src="/saihirawebsite/SHM Asal Methi Khakhra Packaging.png"
+                        alt="SHM Asal Methi Khakhra Packaging"
+                        className="max-h-64 w-auto object-contain drop-shadow-2xl animate-float"
+                      />
+                    </div>
+
+                    <div className="mt-4 text-center text-white" style={{ transform: "translateZ(40px)" }}>
+                      <span className="ribbon text-xs tracking-wider uppercase">SHM Asal Methi Khakhra</span>
+                      <p className="mt-2 text-xs text-amber-200/80">Gujarati Favourite · Slow-Roasted with Fenugreek</p>
+                      <div className="mt-3 flex items-center justify-center gap-3">
+                        <span className="font-display text-lg font-bold text-amber-300">₹120</span>
+                        <span className="text-xs text-amber-100/70">/ 200 g</span>
+                        <Link
+                          to="/products/$slug"
+                          params={{ slug: "methi-khakhra" }}
+                          className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-105"
+                        >
+                          View Details
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </InteractiveTilt>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* 2. TRUST HIGHLIGHTS BAR (Inspired by sairamfoods) */}
-      <section className="border-y border-border bg-[#F5EFE3] py-8">
+      {/* 2. TRUST HIGHLIGHTS BAR */}
+      <section className="border-y border-border bg-[#F5EFE3] py-8 shadow-sm">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {trustBadges.map((b) => (
@@ -191,7 +265,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 3. CATEGORY SHOWCASE */}
+      {/* 3. CATEGORY SHOWCASE WITH 3D TILT */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
           <span className="eyebrow">Handmade Tradition</span>
@@ -205,36 +279,42 @@ function Index() {
             const p = products.find((x) => x.category === c)!;
             const n = products.filter((x) => x.category === c).length;
             return (
-              <Link
-                key={c}
-                to="/products"
-                search={{ c }}
-                className="frame block p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="h-64 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={c}
-                    className="max-h-60 w-auto object-contain transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <span className="ribbon mt-6 text-lg">
-                  {c === "khakhra" ? "Handmade Khakhras" : "Traditional Bhakhris"}
-                </span>
-                <p className="mt-3 text-sm text-muted-foreground font-medium">
-                  {n} Unique Varieties · {c === "khakhra" ? "Paper-thin, light & roasted" : "Thick, hearty, pressed by hand"}
-                </p>
-                <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary">
-                  <span>Browse collection</span>
-                  <span>→</span>
-                </div>
-              </Link>
+              <InteractiveTilt key={c} maxTilt={8} scale={1.02}>
+                <Link
+                  to="/products"
+                  search={{ c }}
+                  className="frame block p-8 pt-10 text-center shadow-deep transition-all duration-300 hover:shadow-2xl h-full flex flex-col justify-between"
+                >
+                  <div
+                    className="h-64 flex items-center justify-center overflow-hidden"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    <img
+                      src={p.image}
+                      alt={c}
+                      className="max-h-60 w-auto object-contain transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <div style={{ transform: "translateZ(40px)" }}>
+                    <span className="ribbon mt-6 text-lg">
+                      {c === "khakhra" ? "Handmade Khakhras" : "Traditional Bhakhris"}
+                    </span>
+                    <p className="mt-3 text-sm text-muted-foreground font-medium">
+                      {n} Unique Varieties · {c === "khakhra" ? "Paper-thin, light & roasted" : "Thick, hearty, pressed by hand"}
+                    </p>
+                    <div className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                      <span>Browse collection</span>
+                      <span>→</span>
+                    </div>
+                  </div>
+                </Link>
+              </InteractiveTilt>
             );
           })}
         </div>
       </section>
 
-      {/* 4. BESTSELLERS SECTION */}
+      {/* 4. BESTSELLERS SECTION WITH 3D PRODUCT CARDS */}
       <section className="bg-secondary/60 py-20 border-y border-border">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -256,20 +336,22 @@ function Index() {
         </div>
       </section>
 
-      {/* 5. CRAFT PROCESS SECTION ("MADE THE OLD WAY" WITH REPLACED AUTHENTIC IMAGE) */}
+      {/* 5. CRAFT PROCESS SECTION ("MADE THE OLD WAY") */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid items-center gap-12 md:grid-cols-2">
-          {/* Replaced Left Image: dough kneading & hand craft */}
+          {/* Authentic hand kneading & dough preparation */}
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl border-4 border-double border-accent shadow-2xl">
-              <img
-                src={DOUGH_CRAFT}
-                alt="Artisanal dough kneading and hand preparation for authentic khakhras"
-                className="h-[460px] w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
+            <InteractiveTilt maxTilt={10} scale={1.03}>
+              <div className="overflow-hidden rounded-2xl border-4 border-double border-accent shadow-2xl">
+                <img
+                  src={DOUGH_CRAFT}
+                  alt="Artisanal dough kneading and hand preparation for authentic khakhras"
+                  className="h-[460px] w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </InteractiveTilt>
             {/* Stamp Badge */}
-            <div className="absolute -bottom-5 -right-5 rounded-full border-2 border-accent bg-primary px-5 py-4 text-center text-primary-foreground shadow-lg">
+            <div className="absolute -bottom-5 -right-5 rounded-full border-2 border-accent bg-primary px-5 py-4 text-center text-primary-foreground shadow-lg animate-float">
               <span className="font-display text-sm font-bold block">100%</span>
               <span className="text-[10px] uppercase tracking-wider block">Handmade</span>
             </div>
@@ -308,7 +390,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 6. NEW: FESTIVE COMBOS & VALUE PACKS (Inspired by sairamfoods) */}
+      {/* 6. FESTIVE COMBOS & VALUE PACKS WITH 3D TILT */}
       <section className="bg-secondary py-20 border-t border-border">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center max-w-xl mx-auto">
@@ -321,43 +403,50 @@ function Index() {
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {combos.map((combo) => (
-              <div
-                key={combo.slug}
-                className="rounded-2xl border border-border bg-card p-6 shadow-deep flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1.5"
-              >
-                <div>
-                  <div className="relative aspect-square overflow-hidden rounded-xl bg-muted/40 p-4 flex items-center justify-center">
-                    <img
-                      src={combo.image}
-                      alt={combo.name}
-                      className="max-h-56 w-auto object-contain drop-shadow"
-                    />
-                    <span className="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow-sm">
-                      {combo.badge}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-xl font-bold text-primary">{combo.name}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{combo.desc}</p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+              <InteractiveTilt key={combo.slug} maxTilt={10} scale={1.03}>
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-deep flex flex-col justify-between h-full transition-shadow hover:shadow-2xl">
                   <div>
-                    <span className="text-lg font-bold text-primary font-display">{formatINR(combo.price)}</span>
-                    <span className="text-xs text-muted-foreground ml-1">/ {combo.weight}</span>
+                    <div
+                      className="relative aspect-square overflow-hidden rounded-xl bg-muted/40 p-4 flex items-center justify-center"
+                      style={{ transform: "translateZ(25px)" }}
+                    >
+                      <img
+                        src={combo.image}
+                        alt={combo.name}
+                        className="max-h-56 w-auto object-contain drop-shadow transition-transform duration-500 hover:scale-105"
+                      />
+                      <span className="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow-sm">
+                        {combo.badge}
+                      </span>
+                    </div>
+                    <div style={{ transform: "translateZ(35px)" }}>
+                      <h3 className="mt-5 text-xl font-bold text-primary">{combo.name}</h3>
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{combo.desc}</p>
+                    </div>
                   </div>
-                  <Link
-                    to="/products"
-                    className="rounded-full border border-primary px-4 py-1.5 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                  <div
+                    className="mt-6 pt-4 border-t border-border flex items-center justify-between"
+                    style={{ transform: "translateZ(20px)" }}
                   >
-                    Explore Variety
-                  </Link>
+                    <div>
+                      <span className="text-lg font-bold text-primary font-display">{formatINR(combo.price)}</span>
+                      <span className="text-xs text-muted-foreground ml-1">/ {combo.weight}</span>
+                    </div>
+                    <Link
+                      to="/products"
+                      className="rounded-full border border-primary px-4 py-1.5 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      Explore Variety
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </InteractiveTilt>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. NEW: TEA-TIME PAIRING GUIDE */}
+      {/* 7. TEA-TIME PAIRING GUIDE */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
           <span className="eyebrow">How to Relish</span>
@@ -367,7 +456,7 @@ function Index() {
           </p>
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {pairings.map((pair, idx) => (
+          {pairings.map((pair) => (
             <div key={pair.title} className="rounded-xl border border-border bg-card p-6 shadow-sm hover:border-accent transition-colors">
               <span className="text-xs font-semibold text-accent uppercase tracking-widest">{pair.tag}</span>
               <h3 className="mt-2 text-xl font-bold text-foreground">{pair.title}</h3>
@@ -379,7 +468,7 @@ function Index() {
 
       {/* 8. PROMO BANNER (CHAI & GIFTING) */}
       <section className="relative">
-        <img src={TEA} alt="Authentic masala chai with crisp Indian snacks" className="h-[420px] w-full object-cover filter brightness-75" />
+        <img src={CHAI_SNACK} alt="Authentic masala chai with crisp Indian snacks" className="h-[420px] w-full object-cover filter brightness-75" />
         <div className="absolute inset-0 bg-primary/75" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-primary-foreground">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent">Bulk & Corporate Gifting</span>
@@ -400,7 +489,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 9. REVIEWS & TESTIMONIALS */}
+      {/* 9. REVIEWS & TESTIMONIALS WITH 3D TILT */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center">
           <span className="eyebrow">Loved by Thousands</span>
@@ -408,22 +497,24 @@ function Index() {
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {reviews.map((r, i) => (
-            <figure key={i} className="frame p-8 pt-10 text-center flex flex-col justify-between shadow-deep">
-              <div>
-                <div className="text-accent text-sm tracking-widest mb-3">{r.rating}</div>
-                <blockquote className="font-display text-base italic leading-relaxed text-foreground">
-                  “{r.quote}”
-                </blockquote>
-              </div>
-              <figcaption className="mt-5 border-t border-border/40 pt-3 text-xs text-muted-foreground font-semibold">
-                — {r.author}, <span className="font-normal">{r.city}</span>
-              </figcaption>
-            </figure>
+            <InteractiveTilt key={i} maxTilt={8} scale={1.02}>
+              <figure className="frame p-8 pt-10 text-center flex flex-col justify-between shadow-deep h-full">
+                <div>
+                  <div className="text-accent text-sm tracking-widest mb-3">{r.rating}</div>
+                  <blockquote className="font-display text-base italic leading-relaxed text-foreground">
+                    “{r.quote}”
+                  </blockquote>
+                </div>
+                <figcaption className="mt-5 border-t border-border/40 pt-3 text-xs text-muted-foreground font-semibold">
+                  — {r.author}, <span className="font-normal">{r.city}</span>
+                </figcaption>
+              </figure>
+            </InteractiveTilt>
           ))}
         </div>
       </section>
 
-      {/* 10. NEWSLETTER & VIP CLUB (Inspired by sairamfoods) */}
+      {/* 10. NEWSLETTER & VIP CLUB */}
       <section className="bg-secondary py-16 border-t border-border">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <span className="eyebrow">Join the SAIHIRA Family</span>
