@@ -3,7 +3,6 @@ import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
 import { products, formatINR } from "@/lib/products";
 import { InteractiveTilt } from "@/components/InteractiveTilt";
-import { CurtainReveal3D } from "@/components/CurtainReveal3D";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -132,7 +131,7 @@ function Index() {
 
   return (
     <>
-      {/* 1. HERO SECTION WITH CINEMATIC VIDEO & 3D COLLECTED CURTAIN PROSCENIUM */}
+      {/* 1. HERO SECTION WITH CINEMATIC VIDEO */}
       <section className="relative overflow-hidden bg-black min-h-[85vh] flex items-center border-b border-border">
         {/* Background Video: saihirahomepageherovideo.mp4 */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -151,9 +150,6 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
           <div className="absolute inset-0 bg-[#2D0609]/30 mix-blend-color" />
         </div>
-
-        {/* 3D Royal Curtain Proscenium with Collected Folds & Ribbon Tiebacks */}
-        <CurtainReveal3D />
 
         {/* Ambient Warm Golden Glow Orbs */}
         <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl pointer-events-none animate-pulse-glow" />
