@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer, Header } from "@/components/site";
 import { PremiumLoader } from "@/components/PremiumLoader";
+import { CursorSprinkles } from "@/components/CursorSprinkles";
 import { CartProvider } from "@/lib/cart";
 import { Toaster } from "sonner";
 
@@ -94,6 +95,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+        <CursorSprinkles />
         <PremiumLoader />
         <Header />
         <main>

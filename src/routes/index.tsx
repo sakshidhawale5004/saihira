@@ -145,69 +145,75 @@ function Index() {
           >
             <source src="/saihirahomepageherovideo.mp4" type="video/mp4" />
           </video>
-          {/* Multi-layered cinematic scrim overlay for maximum text contrast and luxury feel */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
-          <div className="absolute inset-0 bg-[#2D0609]/30 mix-blend-color" />
+          {/* Multi-layered cinematic scrim overlay: deep rich backdrop on the left for text, crystal-clear on the right for video */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 via-45% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent via-60% to-black/40" />
+          <div className="absolute inset-0 bg-[#2D0609]/20 mix-blend-color" />
         </div>
 
         {/* Ambient Warm Golden Glow Orbs */}
         <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl pointer-events-none animate-pulse-glow" />
         <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-amber-600/15 blur-3xl pointer-events-none animate-pulse-glow" />
 
-        {/* Hero Content: Ultra-High-Contrast Crisp Typography & Trust Badges */}
-        <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-black/60 px-5 py-2 text-xs font-bold tracking-[0.22em] text-amber-300 shadow-[0_0_25px_rgba(245,158,11,0.25)] backdrop-blur-md">
-                <span className="text-amber-400">✦</span>
-                <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
-                <span className="text-amber-400">✦</span>
-              </div>
-
-              <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
-                Paper-thin Khakhras & Hearty Bhakhris,{" "}
-                <span className="bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 bg-clip-text text-transparent font-serif italic drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">
-                  roasted by hand.
-                </span>
-              </h1>
-
-              <p className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-amber-100/95 max-w-2xl font-sans drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil than fried snacks, and vacuum-sealed to lock in crunch for 6 months.
-              </p>
-
-              <div className="mt-9 flex flex-wrap gap-4 items-center">
-                <Link
-                  to="/products"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-8 py-4 text-sm font-bold tracking-wider uppercase text-stone-950 shadow-[0_10px_30px_rgba(245,158,11,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_15px_40px_rgba(245,158,11,0.7)] cursor-pointer"
-                >
-                  <span>Explore 19 Flavours</span>
-                  <span>→</span>
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-black/40 px-7 py-4 text-sm font-semibold tracking-wide text-amber-100 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-amber-300 hover:text-white hover:scale-105 cursor-pointer"
-                >
-                  <span>Our Heritage Story</span>
-                </Link>
-              </div>
-
-              {/* Quick Trust Badges in High-Visibility Gold & Translucent Dark Glass */}
-              <div className="mt-12 pt-8 border-t border-amber-400/25 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-amber-200/95">
-                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
-                  <span>100% Roasted on Tawa</span>
+        {/* Hero Content: Left-Aligned Luxury Presentation leaving Right Video Unobstructed */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 py-20 md:py-28 w-full">
+          <div className="grid lg:grid-cols-12 items-center gap-8">
+            {/* Left Section for Text, Badges, and CTAs */}
+            <div className="lg:col-span-7 xl:col-span-8 text-left">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-black/60 px-5 py-2 text-xs font-bold tracking-[0.22em] text-amber-300 shadow-[0_0_25px_rgba(245,158,11,0.25)] backdrop-blur-md">
+                  <span className="text-amber-400">✦</span>
+                  <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
+                  <span className="text-amber-400">✦</span>
                 </div>
-                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
-                  <span>Zero Maida & Trans-Fat</span>
+
+                <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] max-w-2xl">
+                  Paper-thin Khakhras & Hearty Bhakhris,{" "}
+                  <span className="bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 bg-clip-text text-transparent font-serif italic drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">
+                    roasted by hand.
+                  </span>
+                </h1>
+
+                <p className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-amber-100/95 max-w-xl font-sans drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil than fried snacks, and vacuum-sealed to lock in crunch for 6 months.
+                </p>
+
+                <div className="mt-9 flex flex-wrap gap-4 items-center">
+                  <Link
+                    to="/products"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-8 py-4 text-sm font-bold tracking-wider uppercase text-stone-950 shadow-[0_10px_30px_rgba(245,158,11,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_15px_40px_rgba(245,158,11,0.7)] cursor-pointer"
+                  >
+                    <span>Explore 19 Flavours</span>
+                    <span>→</span>
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-black/40 px-7 py-4 text-sm font-semibold tracking-wide text-amber-100 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-amber-300 hover:text-white hover:scale-105 cursor-pointer"
+                  >
+                    <span>Our Heritage Story</span>
+                  </Link>
                 </div>
-                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
-                  <span>Free Delivery ₹499+</span>
+
+                {/* Quick Trust Badges in High-Visibility Gold & Translucent Dark Glass */}
+                <div className="mt-12 pt-8 border-t border-amber-400/25 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-amber-200/95">
+                  <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                    <span>100% Roasted on Tawa</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                    <span>Zero Maida & Trans-Fat</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                    <span>Free Delivery ₹499+</span>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
+
+            {/* Right Column: Left wide open to showcase the video */}
+            <div className="hidden lg:block lg:col-span-5 xl:col-span-4" />
           </div>
         </div>
       </section>
