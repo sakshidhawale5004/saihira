@@ -131,40 +131,40 @@ function Index() {
 
   return (
     <>
-      {/* 1. HERO SECTION WITH 3D MOTION EFFECT & KHAKHRA/BHAKHRI IMAGERY */}
-      <section className="relative overflow-hidden bg-[#FAF6EE] min-h-[82vh] flex items-center border-b border-border">
-        {/* Background Graphic & Texture */}
+      {/* 1. HERO SECTION (LIGHT, WARM & LUXURIOUS GUJARATI HERITAGE PALETTE) */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#FCF9F2] via-[#FAF5EA] to-[#F3ECE0] min-h-[82vh] flex items-center border-b border-border">
+        {/* Soft, Light Culinary Background Texture */}
         <div className="absolute inset-0 z-0">
           <img
             src={HERO_KHAKHRA}
             alt="Authentic roasted Gujarati Khakhra and crispy flatbreads"
-            className="h-full w-full object-cover object-right md:object-center filter brightness-[0.4] saturate-[1.15]"
+            className="h-full w-full object-cover object-right md:object-center opacity-25 mix-blend-multiply filter contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF5EA] via-[#FAF5EA]/85 to-transparent" />
         </div>
 
-        {/* Ambient Floating 3D Glow Orbs */}
-        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-500/15 blur-3xl pointer-events-none animate-pulse-glow" />
-        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl pointer-events-none animate-pulse-glow" />
+        {/* Ambient Subtle Warm Glow Orbs */}
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-300/20 blur-3xl pointer-events-none animate-pulse-glow" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none animate-pulse-glow" />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-12">
-            {/* Left Content */}
-            <div className="lg:col-span-7 text-white">
+            {/* Left Content in Premium Dark Burgundy & Warm Charcoal */}
+            <div className="lg:col-span-7">
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/15 px-3.5 py-1 text-xs font-semibold tracking-widest text-amber-300 backdrop-blur">
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 text-xs font-bold tracking-widest text-primary shadow-sm backdrop-blur">
                   <span>✦</span>
                   <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
                   <span>✦</span>
                 </div>
 
-                <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] !text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-md">
+                <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] text-primary sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-sm">
                   Paper-thin Khakhras & Hearty Bhakhris,{" "}
-                  <em className="text-amber-300 font-normal italic">roasted by hand.</em>
+                  <em className="text-accent font-normal italic">roasted by hand.</em>
                 </h1>
 
-                <p className="mt-6 text-base leading-relaxed text-amber-100/90 md:text-lg max-w-xl font-sans">
-                  Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil, and vacuum-sealed to lock in crunch for 6 months.
+                <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg max-w-xl font-sans">
+                  Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil than fried snacks, and vacuum-sealed to lock in crunch for 6 months.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4 items-center">
@@ -173,68 +173,72 @@ function Index() {
                   </Link>
                   <Link
                     to="/about"
-                    className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-white/10 px-6 py-3.5 text-sm font-semibold tracking-wider uppercase text-amber-200 backdrop-blur transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                    className="btn-ghost text-sm text-foreground hover:text-primary font-semibold"
                   >
                     Our Heritage Story
                   </Link>
                 </div>
 
-                {/* Quick Trust Badges */}
-                <div className="mt-10 pt-6 border-t border-white/15 grid grid-cols-3 gap-4 text-xs font-medium text-amber-200/90">
+                {/* Quick Trust Badges in Clean Light Theme */}
+                <div className="mt-10 pt-6 border-t border-border/80 grid grid-cols-3 gap-4 text-xs font-semibold text-foreground/85">
                   <div className="flex items-center gap-2">
-                    <span className="text-amber-400">✓</span>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
                     <span>100% Roasted</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-amber-400">✓</span>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
                     <span>Zero Maida</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-amber-400">✓</span>
-                    <span>Free Shipping ₹499+</span>
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
+                    <span>Free Delivery ₹499+</span>
                   </div>
                 </div>
               </Reveal>
             </div>
 
-            {/* Right Side: Interactive 3D Floating Packaging Display */}
+            {/* Right Side: Interactive 3D Floating Packaging Display in Light Luxury Frame */}
             <div className="lg:col-span-5 flex justify-center">
               <Reveal delay={200}>
-                <InteractiveTilt maxTilt={15} scale={1.04} className="max-w-sm">
-                  <div className="relative rounded-3xl border-2 border-amber-400/40 bg-gradient-to-br from-amber-950/70 via-black/80 to-amber-900/60 p-6 shadow-2xl backdrop-blur-md">
+                <InteractiveTilt maxTilt={15} scale={1.04} className="max-w-sm w-full">
+                  <div className="relative rounded-3xl border-2 border-accent bg-card/95 p-6 shadow-2xl shadow-primary/10 backdrop-blur-md">
                     {/* Floating 3D Badge */}
                     <div
-                      className="absolute -top-4 -right-4 z-30 rounded-full border border-accent bg-primary px-4 py-1.5 text-xs font-bold text-primary-foreground shadow-lg animate-float"
+                      className="absolute -top-3.5 -right-3.5 z-30 rounded-full border border-accent bg-primary px-4 py-1 text-xs font-bold text-primary-foreground shadow-lg animate-float"
                       style={{ transform: "translateZ(50px)" }}
                     >
-                      ★ Most Loved Flavours
+                      ★ Most Loved Flavour
                     </div>
 
-                    {/* 3D Floating Packaging Image */}
+                    {/* 3D Floating Packaging Image on Warm Cream Pedestal */}
                     <div
-                      className="relative h-72 w-full flex items-center justify-center overflow-hidden"
+                      className="relative h-72 w-full rounded-2xl bg-gradient-to-b from-amber-50/70 to-muted/30 border border-border/40 p-4 flex items-center justify-center overflow-hidden"
                       style={{ transform: "translateZ(30px)" }}
                     >
-                      {/* Radial Aura */}
-                      <div className="absolute h-52 w-52 rounded-full bg-amber-500/25 blur-2xl animate-pulse-glow" />
+                      {/* Subtle Warm Radial Glow */}
+                      <div className="absolute h-48 w-48 rounded-full bg-amber-400/20 blur-2xl animate-pulse-glow" />
 
                       <img
                         src="/saihirawebsite/SHM Asal Methi Khakhra Packaging.png"
                         alt="SHM Asal Methi Khakhra Packaging"
-                        className="max-h-64 w-auto object-contain drop-shadow-2xl animate-float"
+                        className="max-h-64 w-auto object-contain drop-shadow-xl animate-float"
                       />
                     </div>
 
-                    <div className="mt-4 text-center text-white" style={{ transform: "translateZ(40px)" }}>
-                      <span className="ribbon text-xs tracking-wider uppercase">SHM Asal Methi Khakhra</span>
-                      <p className="mt-2 text-xs text-amber-200/80">Gujarati Favourite · Slow-Roasted with Fenugreek</p>
-                      <div className="mt-3 flex items-center justify-center gap-3">
-                        <span className="font-display text-lg font-bold text-amber-300">₹120</span>
-                        <span className="text-xs text-amber-100/70">/ 200 g</span>
+                    <div className="mt-5 text-center" style={{ transform: "translateZ(40px)" }}>
+                      <span className="ribbon text-xs tracking-wider uppercase font-semibold">
+                        SHM Asal Methi Khakhra
+                      </span>
+                      <p className="mt-2 text-xs text-muted-foreground font-medium">
+                        Gujarati Favourite · Slow-Roasted with Fenugreek
+                      </p>
+                      <div className="mt-3.5 flex items-center justify-center gap-3">
+                        <span className="font-display text-xl font-bold text-primary">₹120</span>
+                        <span className="text-xs text-muted-foreground">/ 200 g</span>
                         <Link
                           to="/products/$slug"
                           params={{ slug: "methi-khakhra" }}
-                          className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-105"
+                          className="rounded-full bg-accent px-4 py-1 text-xs font-bold text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-105 shadow-sm"
                         >
                           View Details
                         </Link>
