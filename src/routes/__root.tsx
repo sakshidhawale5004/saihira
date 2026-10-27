@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Footer, Header } from "@/components/site";
+import { PremiumLoader } from "@/components/PremiumLoader";
 import { CartProvider } from "@/lib/cart";
 import { Toaster } from "sonner";
 
@@ -93,6 +94,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
+        <PremiumLoader />
         <Header />
         <main>
           <Outlet />
