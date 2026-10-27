@@ -132,126 +132,86 @@ function Index() {
 
   return (
     <>
-      {/* 1. HERO SECTION (LIGHT, WARM & LUXURIOUS GUJARATI HERITAGE PALETTE) */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#FCF9F2] via-[#FAF5EA] to-[#F3ECE0] min-h-[82vh] flex items-center border-b border-border">
-        {/* 3D Royal Curtain Open Effect */}
-        <CurtainReveal3D />
-
-        {/* Soft, Light Culinary Background Texture */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={HERO_KHAKHRA}
-            alt="Authentic roasted Gujarati Khakhra and crispy flatbreads"
-            className="h-full w-full object-cover object-right md:object-center opacity-25 mix-blend-multiply filter contrast-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF5EA] via-[#FAF5EA]/85 to-transparent" />
+      {/* 1. HERO SECTION WITH CINEMATIC VIDEO & 3D COLLECTED CURTAIN PROSCENIUM */}
+      <section className="relative overflow-hidden bg-black min-h-[85vh] flex items-center border-b border-border">
+        {/* Background Video: saihirahomepageherovideo.mp4 */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover object-center filter brightness-90 contrast-105"
+            poster="/saihirawebsite/SHM Asal Methi Khakhra Packaging.png"
+          >
+            <source src="/saihirahomepageherovideo.mp4" type="video/mp4" />
+          </video>
+          {/* Multi-layered cinematic scrim overlay for maximum text contrast and luxury feel */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-[#2D0609]/30 mix-blend-color" />
         </div>
 
-        {/* Ambient Subtle Warm Glow Orbs */}
-        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-300/20 blur-3xl pointer-events-none animate-pulse-glow" />
-        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl pointer-events-none animate-pulse-glow" />
+        {/* 3D Royal Curtain Proscenium with Collected Folds & Ribbon Tiebacks */}
+        <CurtainReveal3D />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-12">
-            {/* Left Content in Premium Dark Burgundy & Warm Charcoal */}
-            <div className="lg:col-span-7">
-              <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5 text-xs font-bold tracking-widest text-primary shadow-sm backdrop-blur">
-                  <span>✦</span>
-                  <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
-                  <span>✦</span>
+        {/* Ambient Warm Golden Glow Orbs */}
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl pointer-events-none animate-pulse-glow" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-amber-600/15 blur-3xl pointer-events-none animate-pulse-glow" />
+
+        {/* Hero Content: Ultra-High-Contrast Crisp Typography & Trust Badges */}
+        <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
+          <div className="max-w-3xl">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-black/60 px-5 py-2 text-xs font-bold tracking-[0.22em] text-amber-300 shadow-[0_0_25px_rgba(245,158,11,0.25)] backdrop-blur-md">
+                <span className="text-amber-400">✦</span>
+                <span className="uppercase">SHM ASAL · 100% HANDMADE GUJARATI CRUNCH</span>
+                <span className="text-amber-400">✦</span>
+              </div>
+
+              <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+                Paper-thin Khakhras & Hearty Bhakhris,{" "}
+                <span className="bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 bg-clip-text text-transparent font-serif italic drop-shadow-[0_2px_12px_rgba(212,175,55,0.4)]">
+                  roasted by hand.
+                </span>
+              </h1>
+
+              <p className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-amber-100/95 max-w-2xl font-sans drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil than fried snacks, and vacuum-sealed to lock in crunch for 6 months.
+              </p>
+
+              <div className="mt-9 flex flex-wrap gap-4 items-center">
+                <Link
+                  to="/products"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 px-8 py-4 text-sm font-bold tracking-wider uppercase text-stone-950 shadow-[0_10px_30px_rgba(245,158,11,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_15px_40px_rgba(245,158,11,0.7)] cursor-pointer"
+                >
+                  <span>Explore 19 Flavours</span>
+                  <span>→</span>
+                </Link>
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-black/40 px-7 py-4 text-sm font-semibold tracking-wide text-amber-100 shadow-md backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-amber-300 hover:text-white hover:scale-105 cursor-pointer"
+                >
+                  <span>Our Heritage Story</span>
+                </Link>
+              </div>
+
+              {/* Quick Trust Badges in High-Visibility Gold & Translucent Dark Glass */}
+              <div className="mt-12 pt-8 border-t border-amber-400/25 flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-amber-200/95">
+                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                  <span>100% Roasted on Tawa</span>
                 </div>
-
-                <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] text-primary sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-sm">
-                  Paper-thin Khakhras & Hearty Bhakhris,{" "}
-                  <em className="text-accent font-normal italic">roasted by hand.</em>
-                </h1>
-
-                <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg max-w-xl font-sans">
-                  Slow-roasted on seasoned cast iron tawas the old-fashioned way. Zero maida, 80% less oil than fried snacks, and vacuum-sealed to lock in crunch for 6 months.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-4 items-center">
-                  <Link to="/products" className="btn-warm text-sm shadow-xl hover:scale-105">
-                    Explore 19 Flavours →
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="btn-ghost text-sm text-foreground hover:text-primary font-semibold"
-                  >
-                    Our Heritage Story
-                  </Link>
+                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                  <span>Zero Maida & Trans-Fat</span>
                 </div>
-
-                {/* Quick Trust Badges in Clean Light Theme */}
-                <div className="mt-10 pt-6 border-t border-border/80 grid grid-cols-3 gap-4 text-xs font-semibold text-foreground/85">
-                  <div className="flex items-center gap-2">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
-                    <span>100% Roasted</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
-                    <span>Zero Maida</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">✓</span>
-                    <span>Free Delivery ₹499+</span>
-                  </div>
+                <div className="flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-black/50 px-4 py-2 backdrop-blur-md shadow-sm">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-400 text-stone-950 text-[11px] font-black">✓</span>
+                  <span>Free Delivery ₹499+</span>
                 </div>
-              </Reveal>
-            </div>
-
-            {/* Right Side: Interactive 3D Floating Packaging Display in Light Luxury Frame */}
-            <div className="lg:col-span-5 flex justify-center">
-              <Reveal delay={200}>
-                <InteractiveTilt maxTilt={15} scale={1.04} className="max-w-sm w-full">
-                  <div className="relative rounded-3xl border-2 border-accent bg-card/95 p-6 shadow-2xl shadow-primary/10 backdrop-blur-md">
-                    {/* Floating 3D Badge */}
-                    <div
-                      className="absolute -top-3.5 -right-3.5 z-30 rounded-full border border-accent bg-primary px-4 py-1 text-xs font-bold text-primary-foreground shadow-lg animate-float"
-                      style={{ transform: "translateZ(50px)" }}
-                    >
-                      ★ Most Loved Flavour
-                    </div>
-
-                    {/* 3D Floating Packaging Image on Warm Cream Pedestal */}
-                    <div
-                      className="relative h-72 w-full rounded-2xl bg-gradient-to-b from-amber-50/70 to-muted/30 border border-border/40 p-4 flex items-center justify-center overflow-hidden"
-                      style={{ transform: "translateZ(30px)" }}
-                    >
-                      {/* Subtle Warm Radial Glow */}
-                      <div className="absolute h-48 w-48 rounded-full bg-amber-400/20 blur-2xl animate-pulse-glow" />
-
-                      <img
-                        src="/saihirawebsite/SHM Asal Methi Khakhra Packaging.png"
-                        alt="SHM Asal Methi Khakhra Packaging"
-                        className="max-h-64 w-auto object-contain drop-shadow-xl animate-float"
-                      />
-                    </div>
-
-                    <div className="mt-5 text-center" style={{ transform: "translateZ(40px)" }}>
-                      <span className="ribbon text-xs tracking-wider uppercase font-semibold">
-                        SHM Asal Methi Khakhra
-                      </span>
-                      <p className="mt-2 text-xs text-muted-foreground font-medium">
-                        Gujarati Favourite · Slow-Roasted with Fenugreek
-                      </p>
-                      <div className="mt-3.5 flex items-center justify-center gap-3">
-                        <span className="font-display text-xl font-bold text-primary">₹120</span>
-                        <span className="text-xs text-muted-foreground">/ 200 g</span>
-                        <Link
-                          to="/products/$slug"
-                          params={{ slug: "methi-khakhra" }}
-                          className="rounded-full bg-accent px-4 py-1 text-xs font-bold text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-105 shadow-sm"
-                        >
-                          View Details
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </InteractiveTilt>
-              </Reveal>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -287,7 +247,7 @@ function Index() {
             const p = products.find((x) => x.category === c)!;
             const n = products.filter((x) => x.category === c).length;
             return (
-              <InteractiveTilt key={c} maxTilt={8} scale={1.02}>
+              <InteractiveTilt key={c} maxTilt={15} scale={1.03}>
                 <Link
                   to="/products"
                   search={{ c }}
@@ -411,7 +371,7 @@ function Index() {
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {combos.map((combo) => (
-              <InteractiveTilt key={combo.slug} maxTilt={10} scale={1.03}>
+              <InteractiveTilt key={combo.slug} maxTilt={15} scale={1.04}>
                 <div className="rounded-2xl border border-border bg-card p-6 shadow-deep flex flex-col justify-between h-full transition-shadow hover:shadow-2xl">
                   <div>
                     <div
@@ -505,7 +465,7 @@ function Index() {
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {reviews.map((r, i) => (
-            <InteractiveTilt key={i} maxTilt={8} scale={1.02}>
+            <InteractiveTilt key={i} maxTilt={14} scale={1.03}>
               <figure className="frame p-8 pt-10 text-center flex flex-col justify-between shadow-deep h-full">
                 <div>
                   <div className="text-accent text-sm tracking-widest mb-3">{r.rating}</div>
