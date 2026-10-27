@@ -3,6 +3,7 @@ import { Reveal } from "@/components/site";
 import { ProductCard } from "@/components/ProductCard";
 import { products, formatINR } from "@/lib/products";
 import { InteractiveTilt } from "@/components/InteractiveTilt";
+import { CurtainReveal3D } from "@/components/CurtainReveal3D";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -133,6 +134,9 @@ function Index() {
     <>
       {/* 1. HERO SECTION (LIGHT, WARM & LUXURIOUS GUJARATI HERITAGE PALETTE) */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#FCF9F2] via-[#FAF5EA] to-[#F3ECE0] min-h-[82vh] flex items-center border-b border-border">
+        {/* 3D Royal Curtain Open Effect */}
+        <CurtainReveal3D />
+
         {/* Soft, Light Culinary Background Texture */}
         <div className="absolute inset-0 z-0">
           <img
