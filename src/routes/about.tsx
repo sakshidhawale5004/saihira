@@ -105,11 +105,11 @@ function About() {
               Every piece in our collection is hand-rolled by experienced women artisans, roasted slowly over gentle iron tawa heat, and packed fresh in Mumbai.
             </p>
           </Reveal>
-          <InteractiveTilt maxTilt={8} scale={1.02}>
+          <InteractiveTilt maxTilt={10} scale={1.03}>
             <div className="overflow-hidden rounded-2xl border-4 border-double border-accent shadow-2xl">
               <img
-                src="/test_knead1.jpg"
-                alt="Fresh dough preparation for khakhras"
+                src="/khakra 3.jpg"
+                alt="Authentic handmade SHM Asal Gujarati Khakhra craft"
                 className="h-[380px] w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>

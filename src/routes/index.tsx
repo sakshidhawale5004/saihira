@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 // High-resolution Unsplash imagery dedicated to Khakhra, Bhakhri, roasted flatbreads & chai
 const HERO_KHAKHRA = "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1600&q=85"; // Crisp roasted Indian flatbreads
-const DOUGH_CRAFT = "/test_knead1.jpg"; // Hand kneading fresh dough
+const DOUGH_CRAFT = "/khakra.jpg"; // Authentic handmade golden roasted khakhra
 const CHAI_SNACK = "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=1400&q=85"; // Traditional Indian chai & snacks
 
 export const Route = createFileRoute("/")({
@@ -39,33 +39,42 @@ const steps = [
   ["04", "Vacuum Packaging", "Sealed immediately in food-grade vacuum pouches to preserve authentic crunch without preservatives."],
 ];
 
-const combos = [
+const healthAdvantages = [
   {
-    name: "Gujarati Royal Favourites Box",
-    slug: "royal-box",
-    desc: "A hand-picked selection of our top 4 bestseller Khakhras: Methi, Jeera, Masala & Plain.",
-    price: 480,
-    weight: "800 g",
-    badge: "Bestseller Combo",
-    image: "/saihirawebsite/SHM Asal Methi Khakhra Packaging.png",
+    icon: "🌾",
+    title: "100% Whole Grains, 0% Maida",
+    desc: "Made strictly with stone-ground whole wheat, nutritious millets (Bajri, Ragi), and barley flours. High in natural dietary fibre and gut-friendly.",
+    badge: "Pure Grains",
   },
   {
-    name: "Millet & Health Trio Pack",
-    slug: "health-trio",
-    desc: "Power-packed wholesome nutrition with Ragi, Bajri Methi and Oats Masala Khakhras.",
-    price: 360,
-    weight: "600 g",
-    badge: "High Fibre",
-    image: "/saihirawebsite/Premium Ragi Khakhra Packaging Design.png",
+    icon: "🔥",
+    title: "80% Less Oil than Potato Chips",
+    desc: "Lightly brushed with premium cold-pressed groundnut oil, then pressed gently on seasoned cast-iron tawas. Never submerged in deep-frying fats.",
+    badge: "Low Calorie",
   },
   {
-    name: "Heritage Bhakhri Sampler",
-    slug: "bhakhri-sampler",
-    desc: "Thick, rustic, crunchy Bhakhris: Jaggery (Sweet), Garlic, and Black Pepper.",
-    price: 420,
-    weight: "750 g",
-    badge: "Chai Favourite",
-    image: "/saihirawebsite/Jaggery Bhakhri Rustic Product Display.png",
+    icon: "🌿",
+    title: "Authentic Gujarati Masala Craft",
+    desc: "Infused with roasted cumin seeds, crushed ajwain, sun-dried kasuri methi leaves, and pure rock salt for a tantalizing authentic flavour.",
+    badge: "Natural Spices",
+  },
+  {
+    icon: "🛡️",
+    title: "Vacuum-Packed 6-Month Freshness",
+    desc: "Food-grade vacuum pouches lock out moisture and oxygen, preserving peak tawa crispness and roasted aroma without artificial preservatives.",
+    badge: "Zero Preservatives",
+  },
+  {
+    icon: "☕",
+    title: "The Ultimate 4 PM Tea Companion",
+    desc: "Light on the stomach yet deeply satisfying. The perfect companion for hot cutting chai, fresh homemade curd, or a dab of desi ghee.",
+    badge: "Chai Friendly",
+  },
+  {
+    icon: "🪷",
+    title: "100% Jain & Sattvic Kitchen",
+    desc: "Prepared in spotlessly clean, vegetarian facilities. Dedicated zero-onion, zero-garlic options and Farali fasting ranges available.",
+    badge: "Jain Purity",
   },
 ];
 
@@ -360,58 +369,84 @@ function Index() {
         </div>
       </section>
 
-      {/* 6. FESTIVE COMBOS & VALUE PACKS WITH 3D TILT */}
-      <section className="bg-secondary py-20 border-t border-border">
+      {/* 6. HEALTH & HERITAGE ADVANTAGE ("THE ASAL DIFFERENCE: SLOW-ROASTED, NEVER FRIED") */}
+      <section className="bg-secondary/70 py-24 border-t border-border">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center max-w-xl mx-auto">
-            <span className="eyebrow">Gift of Health & Tradition</span>
-            <h2 className="mt-3 text-4xl">Curated Combos & Gift Hampers</h2>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              Whether celebrating Diwali, Raksha Bandhan, or gifting healthy snacks to family abroad, our festive boxes bring authentic warmth to every home.
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="eyebrow">The Asal Purity Standard</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-display font-bold text-primary">
+              100% Slow-Roasted, <em className="text-accent italic font-normal">Never Fried.</em>
+            </h2>
+            <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+              Why health-conscious families and daily tea-time lovers across India choose SAIHIRA over commercial fried snacks.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {combos.map((combo) => (
-              <InteractiveTilt key={combo.slug} maxTilt={15} scale={1.04}>
-                <div className="rounded-2xl border border-border bg-card p-6 shadow-deep flex flex-col justify-between h-full transition-shadow hover:shadow-2xl">
-                  <div>
-                    <div
-                      className="relative aspect-square overflow-hidden rounded-xl bg-muted/40 p-4 flex items-center justify-center"
-                      style={{ transform: "translateZ(25px)" }}
-                    >
-                      <img
-                        src={combo.image}
-                        alt={combo.name}
-                        className="max-h-56 w-auto object-contain drop-shadow transition-transform duration-500 hover:scale-105"
-                      />
-                      <span className="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow-sm">
-                        {combo.badge}
-                      </span>
-                    </div>
-                    <div style={{ transform: "translateZ(35px)" }}>
-                      <h3 className="mt-5 text-xl font-bold text-primary">{combo.name}</h3>
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{combo.desc}</p>
-                    </div>
-                  </div>
+          <div className="mt-14 grid items-center gap-12 lg:grid-cols-12">
+            {/* Left 3D Showcase Card with khakra2.jpg */}
+            <div className="lg:col-span-5 flex justify-center">
+              <InteractiveTilt maxTilt={14} scale={1.03} className="w-full max-w-md">
+                <div className="relative rounded-3xl border-2 border-accent bg-card p-4 sm:p-6 shadow-deep">
+                  {/* Floating 3D Badge */}
                   <div
-                    className="mt-6 pt-4 border-t border-border flex items-center justify-between"
-                    style={{ transform: "translateZ(20px)" }}
+                    className="absolute -top-3.5 -right-3.5 z-30 rounded-full border border-accent bg-primary px-4 py-1 text-xs font-bold text-primary-foreground shadow-lg animate-float"
+                    style={{ transform: "translateZ(45px)" }}
                   >
-                    <div>
-                      <span className="text-lg font-bold text-primary font-display">{formatINR(combo.price)}</span>
-                      <span className="text-xs text-muted-foreground ml-1">/ {combo.weight}</span>
-                    </div>
-                    <Link
-                      to="/products"
-                      className="rounded-full border border-primary px-4 py-1.5 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      Explore Variety
-                    </Link>
+                    ★ 100% Cast Iron Tawa Baked
+                  </div>
+
+                  <div
+                    className="overflow-hidden rounded-2xl border border-border shadow-md"
+                    style={{ transform: "translateZ(25px)" }}
+                  >
+                    <img
+                      src="/khakra2.jpg"
+                      alt="Freshly roasted golden Gujarati Khakhras on traditional iron tawa"
+                      className="h-80 w-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="mt-5 text-center" style={{ transform: "translateZ(35px)" }}>
+                    <span className="ribbon text-xs tracking-wider uppercase font-semibold">
+                      Guilt-Free Daily Munching
+                    </span>
+                    <p className="mt-2 text-xs text-muted-foreground font-medium">
+                      Paper-thin crispiness, zero trans-fat, and pure whole-grain wholesome nutrition.
+                    </p>
                   </div>
                 </div>
               </InteractiveTilt>
-            ))}
+            </div>
+
+            {/* Right 6-Pillar Health & Advantage Grid */}
+            <div className="lg:col-span-7 grid gap-5 sm:grid-cols-2">
+              {healthAdvantages.map((item, idx) => (
+                <InteractiveTilt key={idx} maxTilt={10} scale={1.02} className="h-full">
+                  <div className="h-full rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:border-accent hover:shadow-md flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[10px] font-bold text-primary uppercase tracking-wider">
+                          {item.badge}
+                        </span>
+                      </div>
+                      <h3 className="font-display text-base font-bold text-primary">{item.title}</h3>
+                      <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </InteractiveTilt>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-bold text-primary-foreground shadow-lg hover:scale-105 transition-all cursor-pointer"
+            >
+              <span>Explore All 19 Roasted Flavours</span>
+              <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
